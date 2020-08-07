@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {getTodoList} from '../../api/login'
 // localeProvide:国际化组件，目的是把组件汉化
 // import { localeProvide, Calendar, Icon, Button } from 'antd';
 // import '../static/antd.css'
@@ -25,6 +26,13 @@ class TodoList extends React.Component {
             finishedCount:nextProps.finishedCount
         })
 
+    }
+     async _reqTodoList(){
+        const result = await getTodoList();
+        console.log(result)
+    }
+    componentDidMount(){
+        this._reqTodoList()
     }
     render() {
         const {todos,finishedCount} = this.state;

@@ -1,15 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { Form, Input, Button, Checkbox } from 'antd';
-import {getVerifcode} from '../api/login.js'
+// import {getVerifcode} from '../api/login.js'
  class Login extends React.Component{
     constructor(props,context){
         super(props,context);
     }
     componentWillMount(){
-        getVerifcode().then((data)=>{
-            console.log(data)
-        })
+        // getVerifcode().then((data)=>{
+        //     console.log(data)
+        // })
     }
     render(){
         const layout = {
