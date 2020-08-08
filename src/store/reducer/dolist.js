@@ -10,6 +10,10 @@ export default function dolist(state = {
     const newState = JSON.parse(JSON.stringify(state))
     let finishedCount = 0;
     switch (action.type) {
+        // 获取所有的todo
+        case TYPES.GET_ALL_ITEM:
+            newState.todos = action.todos;
+            return newState;
         case TYPES.DEL_TODO_ITEM:
          
             newState.todos.forEach((todo, index) => {

@@ -8,12 +8,11 @@ import Head from './Head'
 import Content from './content'
 import Foot from './Foot'
 import action from '../../store/action';
-import store from '../../store';
 class TodoList extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state={
-           todos:this.props.todos,
+           todos:[],
            finishedCount:0
         }
     //    this._handleStoreChange = this._handleStoreChange.bind(this)
@@ -25,14 +24,20 @@ class TodoList extends React.Component {
             todos:nextProps.todos,
             finishedCount:nextProps.finishedCount
         })
-
+ 
     }
-     async _reqTodoList(){
-        const result = await getTodoList();
-        console.log(result)
-    }
+    //  async _reqTodoList(){
+    //     const result = await getTodoList();
+    //     let {getAllItemAction} = this.props;
+    //      if(result.success_code==200){
+    //         getAllItemAction(result.item)
+    //      }
+    // }
     componentDidMount(){
-        this._reqTodoList()
+        // this._reqTodoList()
+        let {getAllItemAction} = this.props;
+      const res=  getAllItemAction()
+      console.log(res)
     }
     render() {
         const {todos,finishedCount} = this.state;

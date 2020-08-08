@@ -1,5 +1,28 @@
 import * as TYPES from '../action-types';
+import { getTodoList } from '../../api/login';
+// import store from '../index';
 let dolist = {
+    // 获取所有记录
+    // getAllItemAction(todos){
+    //     return {
+    //         type:TYPES.GET_ALL_ITEM,
+    //         todos
+    //     }
+    // },
+    getAllItemAction(){
+       return (dispatch)=>{
+           getTodoList().then((res)=>{
+               if(res.success_code==200){
+                   const todos = res.item;
+                   dispatch({
+                    type:TYPES.GET_ALL_ITEM,
+                    todos
+                   })
+                 
+               }
+           })
+       } 
+    },
     // 删除一条记录
     delItem(todoId){
         return {
